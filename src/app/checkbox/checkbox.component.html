@@ -1,0 +1,19 @@
+<!-- <div>
+    <input type="checkbox" id="conding" name="coding"  />
+    <label>Coding</label>
+</div>
+
+<div>
+    <input type="checkbox" id="music" name="music" />
+    <label>Music</label>
+</div>
+
+<div>
+    <input type="checkbox" id="dance" name="dance" />
+    <label>Dance</label>
+</div> -->
+
+<span class="m-2" *ngFor="let option of options">
+    <input type="checkbox" id="{{option}}" name="{{option}}" (change)="selectedOptions(option)"/>
+    <label>{{option}}</label>
+</span>

@@ -1,0 +1,40 @@
+<div class="container">
+    <form>
+        <div>
+            <h1>User Details Form</h1>
+            <div class="mt-50">
+                <label>Gender : </label>
+                <app-radio-button [options]="radiobuttonOptions"
+                    (updateSelectedGender)="getSelectedGender($event)"></app-radio-button>
+            </div>
+            <div class="mt-30">
+                <label>Hobbies :</label>
+                <app-checkbox [options]="checkboxOptions" (updateSelectedHobbies)="getSelectedHobbies($event)"></app-checkbox>
+            </div>
+            <div class="mt-30">
+                <label>Technologies :</label>
+                <app-multi-select [options]="multiSelectOptions" (updateSelectedTechnologies)="getSelectedTechnologies($event)"></app-multi-select>
+            </div>
+            <div class="mt-30 ml-5 btn-center">
+                <button class="btn-primary" (click)="submit()">Submit</button>
+            </div>
+        </div>
+        <span class="mt-30" *ngIf="displayValues">-----------------------------------------------</span>
+        <div *ngIf="displayValues">
+            <div class="mt-30"> <label class="">Gender : </label> <span>{{selectedGender}}</span>
+            </div>
+            <div class="mt-30"> <label class="">Hobbies : </label> <span>{{selectedHobbies}}</span>
+            </div>
+            <div class="mt-30"> <label class="">Technologies : </label> <span>{{selectedTehnologies}}</span>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<div class="container">
+    
+</div>
+
+
+<router-outlet></router-outlet>
