@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class RadioButtonComponent implements OnInit {
   @Input() options: any;
   @Output() updateSelectedGender:EventEmitter<string>=new EventEmitter();
-
+  gender:string="";
 
   ngOnInit() {
 

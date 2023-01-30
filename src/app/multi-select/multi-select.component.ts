@@ -27,4 +27,8 @@ export class MultiSelectComponent implements OnInit {
     }
     this.updateSelectedTechnologies.emit(this.selectedTechnologies);
   }
+
+  clearData(){
+    this.selectedTechnologies=[];
+  }
 }

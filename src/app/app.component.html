@@ -1,5 +1,5 @@
 <div class="container">
-    <form>
+    <form >
         <div>
             <h1>User Details Form</h1>
             <div class="mt-50">
@@ -9,17 +9,19 @@
             </div>
             <div class="mt-30">
                 <label>Hobbies :</label>
-                <app-checkbox [options]="checkboxOptions" (updateSelectedHobbies)="getSelectedHobbies($event)"></app-checkbox>
+                <app-checkbox  [options]="checkboxOptions"
+                    (updateSelectedHobbies)="getSelectedHobbies($event)"></app-checkbox>
             </div>
             <div class="mt-30">
                 <label>Technologies :</label>
-                <app-multi-select [options]="multiSelectOptions" (updateSelectedTechnologies)="getSelectedTechnologies($event)"></app-multi-select>
+                <app-multi-select [options]="multiSelectOptions"
+                    (updateSelectedTechnologies)="getSelectedTechnologies($event)" #multiselect></app-multi-select>
             </div>
             <div class="mt-30 ml-5 btn-center">
-                <button class="btn-primary" (click)="submit()">Submit</button>
+                <button class="btn-primary" (click)="submit()" >Submit</button>
             </div>
         </div>
-        <span class="mt-30" *ngIf="displayValues">-----------------------------------------------</span>
+        <!-- <span class="mt-30" *ngIf="displayValues">-----------------------------------------------</span>
         <div *ngIf="displayValues">
             <div class="mt-30"> <label class="">Gender : </label> <span>{{selectedGender}}</span>
             </div>
@@ -27,14 +29,36 @@
             </div>
             <div class="mt-30"> <label class="">Technologies : </label> <span>{{selectedTehnologies}}</span>
             </div>
-        </div>
+        </div> -->
+       
     </form>
-
 </div>
 
-<div class="container">
-    
+<div class="container" *ngIf="tempUserDetails?.length > 0">
+    <table>
+        <thead>
+            <tr>
+                <th>Gender</th>
+                <th>Hobbies</th>
+                <th>Technologies</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of tempUserDetails">
+                <td>{{user.gender}}</td>
+                <td>{{user.hobbies}}</td>
+                <td>{{user.technologies}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <div class="mt-30">
+                    <button class="btn-primary m-5"  (click)="prev()" aria-placeholder="prev" ><</button>
+                    <button class="btn-primary m-5"  (click)="next()" aria-placeholder="next" >></button>
+                </div>
+            </tr>
+        </tfoot>
+    </table>
 </div>
-
 
 <router-outlet></router-outlet>

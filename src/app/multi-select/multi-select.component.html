@@ -4,7 +4,7 @@
         <div class="title" (click)="openToggle()">Technologies</div>
       <div class="select-options" *ngIf="displayOptions">
             <div *ngFor="let option of options" class="option">
-                <input type="checkbox" id="{{option}}" name="{{option}}" (change)="selectedOptions(option)"/>
+                <input type="checkbox" id="{{option}}" name="{{option}}" value="{{option}}" (change)="selectedOptions(option)"/>
                 <label>{{option}}</label>
             </div>
         </div>
